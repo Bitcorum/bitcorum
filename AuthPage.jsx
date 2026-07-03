@@ -280,8 +280,6 @@ export default function AuthPage({ onBackHome }) {
 
   return (
     <div style={styles.page}>
-      <CandleStrip side="left" />
-      <CandleStrip side="right" />
       <div style={styles.content}>
         {mode === "login" && (
           <div style={styles.backHome} onClick={handleBackHome}>← BACK TO HOME</div>

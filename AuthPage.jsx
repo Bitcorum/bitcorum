@@ -218,7 +218,7 @@ function TrustStrip() {
 }
 
 export default function AuthPage({ onBackHome }) {
-  const [mode, setMode] = useState("login"); // "login" | "signup"
+  const [mode, setMode] = useState("signup"); // "login" | "signup"
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

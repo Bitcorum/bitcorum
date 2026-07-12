@@ -244,7 +244,7 @@ export default function AuthPage({ onBackHome }) {
     setLoading(true);
     const { error: signInError } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
     setLoading(false);
-    if (signInError) setError(signInError.message);
+    if (signInError) setError(signInError.message); else window.scrollTo(0, 0);
   };
 
   const handleSignup = async (e) => {

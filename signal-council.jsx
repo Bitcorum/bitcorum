@@ -986,6 +986,22 @@ function BitcorumRadio({ btcPrice }) {
   const eqRef = useRef(null);
   const headlineIdx = useRef(0);
   const gold = "#d4a300";
+  const liveHeadlines = useRef([]);
+  useEffect(() => {
+    const fetchNews = () => {
+      fetch("/api/news")
+        .then(r => r.json())
+        .then(data => {
+          if (data.headlines && data.headlines.length > 0) {
+            liveHeadlines.current = data.headlines;
+          }
+        })
+        .catch(() => {});
+    };
+    fetchNews();
+    const newsTimer = setInterval(fetchNews, 20 * 60 * 1000);
+    return () => clearInterval(newsTimer);
+  }, []);
 
   const getHeadlines = () => [
     `Bitcoin is currently trading around $${btcPrice ? Math.round(btcPrice).toLocaleString("en-US") : "78,000"}. Council signals remain active.`,

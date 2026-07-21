@@ -1069,7 +1069,7 @@ function BitcorumRadio({ btcPrice }) {
       identPending.current = false;
       line = "You are listening to Bitcorum Radio, giving you all the latest crypto news from around the world. Tune in, stay informed, stay ahead.";
     } else {
-      const headlines = getHeadlines();
+      const headlines = liveHeadlines.current.length > 0 ? liveHeadlines.current : getHeadlines();
       const idx = headlineIdx.current % headlines.length;
       line = headlines[idx];
       headlineIdx.current++;
